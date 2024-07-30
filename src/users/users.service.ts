@@ -11,10 +11,12 @@ export class UsersService {
   ];
 
   create(createUserDto: CreateUserDto) {
-    return this.users.push({
+    const newUser = {
       ...createUserDto,
       id: this.users.length + 1,
-    });
+    };
+    this.users.push(newUser);
+    return newUser;
   }
 
   findAll(age?: string) {
